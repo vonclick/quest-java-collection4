@@ -9,7 +9,7 @@ public class Thanos {
         Hero vision = new Hero("Vision", 3);
         Hero scarletWitch = new Hero("Scarlet Witch", 29);
         Hero doctorStrange = new Hero("Doctor Strange", 42);
-;
+        
         Flower lily = new Flower("Lily");
         Flower tulip = new Flower("Tulip");
         Flower begonia = new Flower("Begonia");

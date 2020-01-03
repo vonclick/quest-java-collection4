@@ -1,3 +1,7 @@
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Thanos {
 
     public static void main(String[] args) {
@@ -21,10 +25,41 @@ public class Thanos {
         // Vision has a Tulip
         // Captain America has a Lily
         // Doctor Strange and Black Widow have a Violet
-
+        Comparator<Hero> comparator = new Comparator<Hero>() {  
+            @Override  
+            public int compare(Hero orig, Hero compare) {  
+                return orig.getName().compareTo(compare.getName());  
+            }  
+        };
+        Map<Hero, Flower> party = new TreeMap<>(comparator);
+                
+        party.put(hulk, rose);  
+        party.put(thor, rose);  
+        party.put(scarletWitch, rose);  
+        party.put(vision, tulip);        
+        party.put(captainAmerica, lily);
+        party.put(doctorStrange, violet);
+        party.put(blackWidow, violet);       
+        
+        
         // TODO 2 : Print if `begonia` is contained in the TreeMap
+        boolean isBegoniaInParty = false;
+        
+        for (Hero hero : party.keySet()) {
+        	Flower flower = party.get(hero);        	
+        	
+        	if ( flower.getName().equals("Begonia") ) {
+        		isBegoniaInParty = true;
+        	}   
+        }        
+        System.out.println(isBegoniaInParty);
+        
 
         // TODO 3 : For each hero, alphabetically, print the corresponding flower
-
+        for (Hero hero : party.keySet()) {
+        	Flower flower = party.get(hero);
+            //System.out.println(hero.getName() + ": " + flower.getName());
+            System.out.println(flower.getName());            
+        }        
     }
 }
